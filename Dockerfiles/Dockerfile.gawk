@@ -22,6 +22,39 @@ docker run --rm -it atarumix/gawk5-alpine --version
 docker rmi atarumix/gawk5-alpine
 
 
+
+docker run -v /:/home/busybox --name common_test_volume --rm -ti busybox:latest awk "{print NF}" /home/busybox/baa
+docker run -v /:/home/busybox --name common_test_volume --rm -ti atarumix/gawk5-alpine:latest "{print NF}" /home/busybox/baa
+docker run -v /:/home/busybox --name common_test_volume --rm -ti busybox:latest sh
+docker run -v /:/home/busybox --name common_test_volume --rm -ti busybox:latest cat /home/busybox/test1.awk
+# {print NF}
+docker run -v /:/home/busybox --name common_test_volume --rm -ti atarumix/gawk5-alpine:latest -f /home/busybox/test1.awk /home/busybox/baa
+
+# alpine/git
+docker images alpine/git
+# REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+# alpine/git          latest              94f8849864da        2 months ago        28.4MB
+docker run --rm -ti alpine/git --version
+# 必要に応じて
+docker pull alpine/git:latest
+docker images | grep git
+# alpine/git                           latest                                           76a4083eacef        9 days ago          28.4MB
+# alpine/git                           <none>                                           94f8849864da        2 months ago        28.4MB
+# gitbucket/gitbucket                  latest                                           61c2c8c5aa7d        3 months ago        316MB
+docker run -v /:/home/git --name common_test_volume --rm -ti alpine/git pull https://github.com/Lycheejam/php-sample.git
+
+docker run -v /:/home/git --name common_test_volume --rm -ti busybox:latest mkdir /home/git/gittest
+docker run -v /:/home/git --name common_test_volume --rm -ti alpine/git clone https://github.com/Lycheejam/php-sample.git /home/git/gittest
+docker run -v /:/home/git --name common_test_volume --rm -ti busybox:latest sh
+
+/ # cd /home/git/gittest
+/ # ls -al
+
+
+# [Q]WindowsファイルエクスプローラからDockerコンテナフォルダとファイルにアクセスするにはどうすればよいですか? 
+# https://www.366service.com/jp/qa/06a63153670442cbc4229b6f25c339ca
+
+
 # https://savannah.gnu.org/git/?group=gawk
 # https://git.savannah.gnu.org/cgit/gawk.git
 
