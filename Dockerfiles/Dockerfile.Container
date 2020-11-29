@@ -1,3 +1,13 @@
+# google : Docker volume 複数
+
+# # memo : カンマ区切りとかなのかと思ったら、単純に複数-vを書くだけでした。コマンドが長くなるのは嫌ですが、docker-composeするほどでもない時にはこちらがいいですね。
+# https://www.codit.work/codes/wn2rlkmpr4spwne75n82/
+
+# # Docker、ボリューム(Volume)について真面目に調べた
+# https://qiita.com/gounx2/items/23b0dc8b8b95cc629f32
+
+
+
 
 # 
 # 超軽量 Docker Image true (125 bytes) と sleeping-beauty (129 bytes) - Qiita
@@ -15,3 +25,6 @@
 # dockerでbusybox一個だけのファイルを含むイメージを作って動かしたらどうなるか
 # https://qiita.com/tetsu_koba/items/d861d4bab3bb88612ef4
 # 
+# # Dockerfile.scratch より
+# 
+
