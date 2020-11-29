@@ -1,0 +1,16 @@
+# 今Movable Type再入門するためにDocker環境を整備した作業ログ - Qiita # docker-composeymlを更新してmovable-typeが動作する所まで持って行く
+# https://qiita.com/uehatsu/items/55504c8804bbede3a6bb#docker-composeyml%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%97%E3%81%A6movable-type%E3%81%8C%E5%8B%95%E4%BD%9C%E3%81%99%E3%82%8B%E6%89%80%E3%81%BE%E3%81%A7%E6%8C%81%E3%81%A3%E3%81%A6%E8%A1%8C%E3%81%8F
+
+# https://hub.docker.com/_/memcached?tab=tags&page=1&ordering=last_updated
+
+
+
+docker pull memcached:alpine
+docker pull memcached:1.6.9-alpine
+
+
+# google : memcached bash
+# 
+# シェルスクリプトからmemcachedを使う - Qiita 
+# https://qiita.com/nihongi/items/b0db5d577825ac870ae7
+

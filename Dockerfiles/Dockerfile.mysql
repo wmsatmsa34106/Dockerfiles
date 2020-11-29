@@ -1,0 +1,16 @@
+#
+# https://hub.docker.com/_/mysql?tab=tags&page=1&ordering=last_updated
+
+docker pull mysql:latest
+
+docker images mysql:latest
+
+# REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+# mysql               latest              dd7265748b5d        7 days ago          545MB
+
+docker run --rm -ti mysql:latest mysql --version
+
+# mysql  Ver 8.0.22 for Linux on x86_64 (MySQL Community Server - GPL)
+
+
+

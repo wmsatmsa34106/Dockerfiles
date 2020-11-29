@@ -1,0 +1,57 @@
+# https://hub.docker.com/_/busybox?tab=tags&page=1&ordering=last_updated
+# 
+
+docker pull busybox:uclibc
+docker pull busybox:musl
+docker pull busybox:glibc
+docker pull busybox:latest
+docker pull busybox:1.32.0
+docker pull busybox:1.32.0-uclibc
+docker pull busybox:1.32.0-glibc
+docker pull busybox:1.32-uclibc
+
+
+docker run --rm -ti busybox:uclibc busybox --help
+docker run --rm -ti busybox:musl   busybox --help
+docker run --rm -ti busybox:glibc  busybox --help
+docker run --rm -ti busybox:latest busybox --help
+docker run --rm -ti busybox:1.32.0 busybox --help
+docker run --rm -ti busybox:1.32.0-uclibc busybox --help
+docker run --rm -ti busybox:1.32.0-glibc  busybox --help
+
+# docker images busybox
+# 
+# REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+# busybox             musl                62034553d6c8        5 days ago          1.47MB
+# busybox             1.32.0-glibc        072afb596ca0        5 days ago          5.2MB
+# busybox             glibc               072afb596ca0        5 days ago          5.2MB
+# busybox             1.32.0              dc3bacd8b5ea        5 days ago          1.23MB
+# busybox             1.32.0-uclibc       dc3bacd8b5ea        5 days ago          1.23MB
+# busybox             latest              dc3bacd8b5ea        5 days ago          1.23MB
+# busybox             uclibc              dc3bacd8b5ea        5 days ago          1.23MB
+# busybox             <none>              f0b02e9d092d        6 weeks ago         1.23MB
+# busybox             <none>              6858809bf669        2 months ago        1.23MB
+# 
+
+
+
+#
+# # memo 同じタグでPULL更新があると無タグにロールアウトするらしい？
+# 
+# REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+# busybox             musl                62034553d6c8        5 days ago          1.47MB
+# busybox             glibc               072afb596ca0        5 days ago          5.2MB
+# busybox             uclibc              dc3bacd8b5ea        5 days ago          1.23MB
+# busybox             latest              f0b02e9d092d        6 weeks ago         1.23MB
+# busybox             <none>              6858809bf669        2 months ago        1.23MB
+# 
+# ↓docker pull busybox:latest実行
+# 
+# REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+# busybox             musl                62034553d6c8        5 days ago          1.47MB
+# busybox             glibc               072afb596ca0        5 days ago          5.2MB
+# busybox             latest              dc3bacd8b5ea        5 days ago          1.23MB
+# busybox             uclibc              dc3bacd8b5ea        5 days ago          1.23MB
+# busybox             <none>              f0b02e9d092d        6 weeks ago         1.23MB
+# busybox             <none>              6858809bf669        2 months ago        1.23MB
+# 

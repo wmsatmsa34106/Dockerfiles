@@ -1,0 +1,165 @@
+# Docker/ Jenkins
+# https://qiita.com/legitwhiz/items/e6ac1f5a94f09ff2bb1d
+# Docker/GitBucket
+# https://qiita.com/legitwhiz/items/b1e3b39364e5effb9338
+# -- --------------------------------------------------------- --
+
+# # docker pull openjdk:15-alpine
+# # docker pull openjdk:16-alpine
+# #
+# # docker run -it f02adfce91a2 jshell
+# #
+# # # docker images
+# # REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+# # openjdk             15-alpine           f02adfce91a2        3 months ago        343MB
+# #
+# # docker images | grep jdk
+# # openjdk                              16-alpine                                        55f9129764e2        10 days ago         321MB
+# # openjdk                              15-alpine                                        f02adfce91a2        3 months ago        343MB
+# #
+# #
+# # docker run -it f02adfce91a2 jshell
+# # docker run -it 55f9129764e2 jshell
+
+
+
+# 
+# # volumeは事前に作成する必要があるのと、基本的なボリューム操作コマンド 
+# docker run -it -v /var/www/html --name phptest busybox
+# docker volume ls & REM Dockerコンソール上からは確認きる？ 
+# # https://www.public.ne.jp/2019/03/08/docker-7/
+# docker start phptest
+# docker attach phptet 
+# # phpinfo()のファイルを /var/www/html/info.php に作成 
+# 
+# docker exec -it {loving_wiles} /bin/sh 
+# docker stop {loving_wiles} 
+# 
+# 
+# docker run -it -v /var/www/html --name phptest busybox 
+# 
+
+
+
+# composer 
+# 公式 
+# https://getcomposer.org/doc/ 
+# https://getcomposer.org/doc/03-cli.md#environment-variables
+
+# https://getcomposer.org/download/ 
+cd /var/wwww/html 
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" 
+php -r "unlink('composer-setup.php');"
+cp -p composer.phar /usr/local/bin/composer
+
+
+# php8-on-docker#新機能のお試し 
+# 
+# https://blog.shin1x1.com/entry/php8-on-docker#%E6%96%B0%E6%A9%9F%E8%83%BD%E3%81%AE%E3%81%8A%E8%A9%A6%E3%81%97https://sakura-editor.github.io/help/HLP000035.html 
+# 
+# https://sitest.jp/blog/?p=8823  
+# 
+ 
+# 
+# # docker run --rm -p 8000:80 php:8.0.0RC5-cli-alpine php -S 0.0.0.0:80 
+# 
+# # docker run --rm -p 8000:80 -v C:/User/makiosato:/var/www/html php:8.0.0RC5-cli-alpine php -S 0.0.0.0:80 -t /var/www/html/ 
+# 
+# docker run --rm -p 8000:80 -v /var/www/html --volumes-from phptest php:8.0.0RC5-cli-alpine php -S 0.0.0.0:80 -t /var/www/html/ 
+# 
+#  
+# 
+# docker ps | grep php | gawk "{print $NF}" & docker ps | grep php | gawk "{print $NF}" | CLIP 
+# 
+#  
+# 
+# docker exec -it {loving_wiles} /bin/sh 
+# 
+# docker stop {loving_wiles} 
+# 
+#  
+# 
+# docker run -it -v /var/www/html --name phptest busybox 
+# 
+# 
+# 
+
+
+# docker build -f %AppData%\Docker\Dockerfiles\Dockerfile_httpd_build -t httpd_build .
+# https://www.public.ne.jp/2019/01/25/docker-4/
+
+# -- ------------------------------------------------------------
+# -- 
+# https://docs.docker.jp/engine/userguide/dockervolumes.html
+# -- 
+# https://matsuand.github.io/docs.docker.jp.onthefly/storage/volumes/
+# -- 
+# http://www.tohoho-web.com/docker/docker_volume.html
+# -- ------------------------------------------------------------
+
+
+# -- ------------------------------------------------------------------------------------------------------------
+# ベースイメージを指定
+# -- ------------------------------------------------------------------------------------------------------------
+# FROM httpd:latest
+# FROM httpd:2.4-alpine
+FROM httpd:2.4.46-alpine
+
+# https://hub.docker.com/_/httpd
+# 
+# https://hub.docker.com/r/reflet/docker-alpine-httpd
+# https://qiita.com/curseoff/items/a9e64ad01d673abb6866
+# https://www.public.ne.jp/2019/01/25/docker-4/
+# https://www.public.ne.jp/2019/02/08/docker-5/
+# https://www.public.ne.jp/2019/02/22/docker-6/
+# https://www.public.ne.jp/2019/03/08/docker-7/
+# https://www.public.ne.jp/2019/04/08/docker-8/
+   # 9
+# https://www.public.ne.jp/2020/07/17/%e3%80%90docker%e3%80%91%e7%ac%ac10%e5%9b%9e%e3%80%80docker-dashboard%e3%81%a7%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e7%ae%a1%e7%90%86/ # 10
+   # 11
+   # 12
+#
+
+# google : docker-compose k8s 違い
+# https://www.creationline.com/lab/25164
+# https://qastack.jp/programming/47536536/whats-the-difference-between-docker-compose-and-kubernetes # 詳しい
+# https://blog.ecbeing.tech/entry/2019/10/28/114000 # 詳しくて分かり易い
+# https://qiita.com/Kta-M/items/ce475c0063d3d3f36d5d # K8S, 詳しい
+
+#--------------------------------------------------------
+# イメージの作成者
+#--------------------------------------------------------
+MAINTAINER PublicRelations
+#--------------------------------------------------------
+# 環境変数
+#--------------------------------------------------------
+ENV DIRPATH /usr/local/apache2
+#--------------------------------------------------------
+# ワークディレクトリ指定
+#--------------------------------------------------------
+WORKDIR $DIRPATH/htdocs
+#--------------------------------------------------------
+# コマンド実行
+#--------------------------------------------------------
+RUN echo "Hello Dockerfile! httpd:2.4-alpine !!!" > index.html
+#--------------------------------------------------------
+# 特定のネットワーク・ポートをコンテナ実行時にリッスンさせる
+#--------------------------------------------------------
+EXPOSE 80
+
+# Docker run -d -p 8080:80 httpd_build
+
+
+# ----
+# メンテナンス
+# docker exec -u "www-data" -it c202601a8220 ash
+# # https://qiita.com/yumenomatayume/items/b28edbaf40a293519b8a
+
+# docker exec -u "root" -it c202601a8220 apk add bash
+# docker exec -u "www-data" -it c202601a8220 bash
+# https://qiita.com/yumenomatayume/items/b28edbaf40a293519b8a
+
+# https://qiita.com/masakielastic/items/e08240583215884d41a2
+
+# php
+# apk add composer

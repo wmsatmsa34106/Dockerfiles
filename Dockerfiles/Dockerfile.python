@@ -1,0 +1,27 @@
+
+# https://hub.docker.com/_/python?tab=tags&page=1&ordering=last_updated
+
+docker pull python:alpine
+docker pull python:alpine3.12
+docker pull python:rc-alpine
+docker pull python:rc-alpine3.12
+docker pull python:3.6-alpine
+docker pull python:3.6-alpine3.12
+docker pull python:3.6.12-alpine
+docker pull python:3.6.12-alpine3.12
+
+
+docker images python
+
+# REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+# python              3.6-alpine          32ec068d92f7        4 days ago          40.8MB
+# python              3.6-alpine3.12      32ec068d92f7        4 days ago          40.8MB
+# python              3.6.12-alpine       32ec068d92f7        4 days ago          40.8MB
+# python              3.6.12-alpine3.12   32ec068d92f7        4 days ago          40.8MB
+# python              alpine              bcab265f7997        4 days ago          46.2MB
+# python              alpine3.12          bcab265f7997        4 days ago          46.2MB
+# python              rc-alpine           5c77c8c1fcf7        4 days ago          44.5MB
+# python              rc-alpine3.12       5c77c8c1fcf7        4 days ago          44.5MB
+
+docker run --rm -ti python:3.6.12-alpine3.12 python --version
+

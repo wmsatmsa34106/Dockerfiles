@@ -1,0 +1,17 @@
+
+# 
+# 超軽量 Docker Image true (125 bytes) と sleeping-beauty (129 bytes) - Qiita
+# https://qiita.com/kitsuyui/items/ba6eb17e6bbe97aa6b04
+# 
+# dnsdock の Docker イメージを小さくする - Qiita
+# https://qiita.com/A-I/items/995ad9251d9377df6b64
+# 
+# Dockerのscratchイメージを探検する | Developers.IO
+# https://dev.classmethod.jp/articles/exploration-to-docker-scratch/
+# 
+# (より)小さいDockerイメージを作ろう - Qiita
+# https://qiita.com/IanMLewis/items/badc55b5d8e188ace34a
+# 
+# dockerでbusybox一個だけのファイルを含むイメージを作って動かしたらどうなるか
+# https://qiita.com/tetsu_koba/items/d861d4bab3bb88612ef4
+# 
