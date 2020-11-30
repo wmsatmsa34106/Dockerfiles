@@ -59,6 +59,43 @@ docker run -v /:/home/git --name common_test_volume --rm -ti busybox:latest sh
 # https://git.savannah.gnu.org/cgit/gawk.git
 
 
+
+# このリンクに飛ばされた
+# https://docs.docker.com/docker-for-windows/wsl/#develop-with-docker-and-wsl-2
+
+# これで解決？
+# https://fukuchiharuki.me/static/pukiwikidump/page/%E9%9A%9C%E5%AE%B3%E3%83%A1%E3%83%A2/Docker%20for%20Windows%E3%81%A7%E3%83%9C%E3%83%AA%E3%83%A5%E3%83%BC%E3%83%A0%E3%83%9E%E3%82%A6%E3%83%B3%E3%83%88%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84.html
+
+# これはだめ # docker run -v /c/Users/%UserName%/Downloads/WORK01:/ --name common_test_volume --rm -ti busybox:latest
+docker run -v //c/Users/%UserName%/Downloads/WORK01:/home/win --name common_test_volume --rm -ti busybox:latest
+# できた！
+
+
+
+# 
+# $ docker run -v //c/Users/%UserName%/Downloads/WORK01:/home/win --name common_test_volume --rm -ti busybox:latest
+# / # ls -al /home/win
+# total 4
+# drwxrwxrwx    1 root     root          4096 Nov 30 04:16 .
+# drwxr-xr-x    1 nobody   nobody        4096 Nov 30 04:22 ..
+# -rwxrwxrwx    1 root     root             4 Nov 30 04:16 aaaab.txt
+# / # cat /home/win/aaaab.txt
+# bbbb/ #
+# / # exit
+# 
+
+# 
+# $ docker run -v //c/Users/%UserName%/Downloads/WORK01:/home/win --rm -ti busybox:latest
+# / # ls -al /home/win
+# total 4
+# drwxrwxrwx    1 root     root          4096 Nov 30 04:16 .
+# drwxr-xr-x    1 nobody   nobody        4096 Nov 30 04:25 ..
+# -rwxrwxrwx    1 root     root             4 Nov 30 04:16 aaaab.txt
+# / # exit
+#  
+# 
+
+
 # https://ftp.gnu.org/gnu/gawk/
 # https://ftp.gnu.org/gnu/gawk/gawk-5.1.0.tar.lz , 2020-04-14 08:00	2.9M
 # https://ftp.gnu.org/gnu/gawk/gawk-5.1.0.tar.xz , 2020-04-14 08:00	3.0M
