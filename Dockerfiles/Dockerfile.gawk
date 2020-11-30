@@ -96,6 +96,19 @@ docker run -v //c/Users/%UserName%/Downloads/WORK01:/home/win --name common_test
 # 
 
 
+docker run -v //c/Users/%UserName%/Downloads/WORK01:/home/win -v /:/home/busybox --name common_test_volume --rm -ti busybox:latest
+
+
+# 
+# $ docker run -v //c/Users/%UserName%/Downloads/WORK01:/home/win -v /:/home/busybox --name common_test_volume --rm -ti busybox:latest     
+# / # ls /home/win/*                                                                                                                       
+# /home/win/aaaab.txt                                                                                                                      
+# / # cat /home/win/aaaab.txt                                                                                                              
+# bbbb/ #                                                                                                                                  
+# / # exit                                                                                                                                 
+# 
+
+
 # https://ftp.gnu.org/gnu/gawk/
 # https://ftp.gnu.org/gnu/gawk/gawk-5.1.0.tar.lz , 2020-04-14 08:00	2.9M
 # https://ftp.gnu.org/gnu/gawk/gawk-5.1.0.tar.xz , 2020-04-14 08:00	3.0M
