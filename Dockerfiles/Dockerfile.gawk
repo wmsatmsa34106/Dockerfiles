@@ -99,6 +99,12 @@ docker run -v //c/Users/%UserName%/Downloads/WORK01:/home/win --name common_test
 docker run -v //c/Users/%UserName%/Downloads/WORK01:/home/win -v /:/home/busybox --name common_test_volume --rm -ti busybox:latest
 
 
+# google : lcow wsl2
+# https://speakerdeck.com/cyberblack28/what-a-windows-container-looks-like
+# ... こちらより
+# https://qiita.com/matarillo/items/ca1eecf8f9a3cd76f9ce
+
+
 # 
 # $ docker run -v //c/Users/%UserName%/Downloads/WORK01:/home/win -v /:/home/busybox --name common_test_volume --rm -ti busybox:latest     
 # / # ls /home/win/*                                                                                                                       
