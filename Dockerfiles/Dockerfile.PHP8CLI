@@ -38,11 +38,19 @@ Copyright (c) The PHP Group
 Zend Engine v4.0.0-dev, Copyright (c) Zend Technologies
     with Zend OPcache v8.0.0, Copyright (c), by Zend Technologies
 
+
+docker images phpdockerio/php80-cli
+# REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE
+# phpdockerio/php80-cli   latest              f1c7c185dc4a        4 days ago          161MB
+
+
 docker run --rm -it phpdockerio/php80-cli php -a
+docker run --rm -it phpdockerio/php80-cli
 
 docker run --rm -p 8000:80 -v /var/www/html --volumes-from phptest phpdockerio/php80-cli php -S 0.0.0.0:80 -t /var/www/html/ 
 
 # http://localhost:8000/info.php
+# http://localhost:8000/test_composer/test.php
 
 
 # volumeは事前に作成する必要があるのと、基本的なボリューム操作コマンド 
@@ -57,6 +65,7 @@ docker stop phptest
 # phpinfo()のファイルを /var/www/html/info.php に作成 
 
 docker exec -it {loving_wiles} /bin/sh 
+docker exec -it {loving_wiles} bash 
 docker stop {loving_wiles} 
 
 docker run -it -v /var/www/html --name phptest busybox 
