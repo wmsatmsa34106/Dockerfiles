@@ -29,6 +29,7 @@
 # ENTRYPOINT ["docker-php-entrypoint"]
 # CMD ["php" "-a"]
 
+# https://hub.docker.com/u/phpdockerio
 # https://hub.docker.com/r/phpdockerio/php80-cli
 docker pull phpdockerio/php80-cli
 docker run --rm -it phpdockerio/php80-cli php --version
@@ -48,9 +49,16 @@ docker run --rm -it phpdockerio/php80-cli php -a
 docker run --rm -it phpdockerio/php80-cli
 
 docker run --rm -p 8000:80 -v /var/www/html --volumes-from phptest phpdockerio/php80-cli php -S 0.0.0.0:80 -t /var/www/html/ 
+# Windows用の作業領域を確保
+docker run --rm -p 8000:80 -v //c/Users/%UserName%/Downloads/WORK01:/home/win  -v /var/www/html --volumes-from phptest phpdockerio/php80-cli php -S 0.0.0.0:80 -t /var/www/html/
+
 
 # http://localhost:8000/info.php
 # http://localhost:8000/test_composer/test.php
+
+
+# php.iniファイルの置き換え方法
+# https://teratail.com/questions/68014
 
 
 # volumeは事前に作成する必要があるのと、基本的なボリューム操作コマンド 
@@ -71,4 +79,4 @@ docker stop {loving_wiles}
 docker run -it -v /var/www/html --name phptest busybox 
 
 
-
+# https://qiita.com/rana_kualu/items/c110cb244c3ee38c6859
