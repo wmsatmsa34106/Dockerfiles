@@ -96,13 +96,31 @@ docker run -v //c/Users/%UserName%/Downloads/WORK01:/home/win --name common_test
 # 
 
 
-docker run -v //c/Users/%UserName%/Downloads/WORK01:/home/win -v /:/home/busybox --name common_test_volume --rm -ti busybox:latest
+
+# 関数型OS/ NixOS into WSL2
+# https://github.com/Elyhaka/NixOS-WSL
+# https://the.kalaclista.com/posts/2020/09/13/153628/
 
 
 # google : lcow wsl2
+# google : windows lxd
+# google : Linux Container slaide
 # https://speakerdeck.com/cyberblack28/what-a-windows-container-looks-like
+# https://www.slideshare.net/insideHPC/linux-container-technology-101
 # ... こちらより
 # https://qiita.com/matarillo/items/ca1eecf8f9a3cd76f9ce
+
+# WSL2/Docker でも入れた、LinuxKitのGitHub
+# https://github.com/linuxkit
+# https://github.com/linuxkit/linuxkit/tree/master/pkg
+# https://hub.docker.com/u/linuxkit
+# Windows 10にはコンテナーがいっぱい
+# https://ascii.jp/elem/000/004/032/4032590/
+
+
+
+docker run -v //c/Users/%UserName%/Downloads/WORK01:/home/win -v /:/home/busybox --name common_test_volume --rm -ti busybox:latest
+# なにやら、ボリュームマウントで警告が出る・以前に、何ともコワい”マウント”
 
 
 # 
@@ -113,6 +131,43 @@ docker run -v //c/Users/%UserName%/Downloads/WORK01:/home/win -v /:/home/busybox
 # bbbb/ #                                                                                                                                  
 # / # exit                                                                                                                                 
 # 
+
+
+
+docker run -v //c/Users/%UserName%/Downloads/WORK01:/home/win -v /:/home/busybox --name common_test_volume --rm -ti bash:5.1.0rc3 bash
+
+# 
+# $ docker images bash
+# REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+# bash                3.2.57              2274b58a6fb5        8 days ago          10.7MB
+# bash                4.4.23              9810d8a0a19d        8 days ago          13.3MB
+# bash                5.1.0rc3            c2d1a80aa34a        10 days ago         14.3MB
+# bash                5lasted             c2d1a80aa34a        10 days ago         14.3MB
+# bash                latest              39a95ac32011        5 weeks ago         13.1MB
+# bash                5.1-rc1             13232906cd29        5 weeks ago         13.7MB
+# bash                <none>              7d83a6d8d42d        2 months ago        13.7MB
+# 
+# $ docker images bash:5.1.0rc3
+# REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+# bash                5.1.0rc3            c2d1a80aa34a        10 days ago         14.3MB
+# 
+# 
+# $ docker run --rm -ti bash:5.1.0rc3 bash
+# bash-5.1# exit
+# exit
+# 
+# $ docker run -v //c/Users/%UserName%/Downloads/WORK01:/home/win -v /:/home/busybox --name common_test_volume --rm -ti bash:5.1.0rc3 bash
+# bash-5.1# ls /home/busybox
+# baa        ced        etc        home       media      opt        root       sbin       sys        tmp        var
+# bin        dev        gittest    lib        mnt        proc       run        srv        test1.awk  usr
+# bash-5.1# ls /home/win
+# aaaab.txt
+# bash-5.1# exit
+# exit
+# 
+# # todo : 次は、~/.bash_history
+# 
+
 
 
 # https://ftp.gnu.org/gnu/gawk/
