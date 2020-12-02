@@ -205,4 +205,7 @@ docker run -v //c/Users/%UserName%/Downloads/WORK01:/home/win -v /:/home/busybox
 # https://codezine.jp/article/detail/8324 
 # # -- ------------------------------------------------------------------------------------------------------ -- 
 # 
- 
+
+
+# 興味深い"man"page
+# http://www.qnx.com/developers/docs/6.5.0/index.jsp?topic=%2Fcom.qnx.doc.neutrino_utilities%2Fg%2Fgawk.html 
