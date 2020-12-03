@@ -1,0 +1,14 @@
+# Dockerfile.alpine
+# Dockerfile.etc
+
+
+docker pull jaedle/alpine-curl-jq-arm32v7
+
+docker run --rm -ti jaedle/alpine-curl-jq-arm32v7 sh
+
+$ docker images jaedle/alpine-curl-jq-arm32v7
+REPOSITORY                      TAG                 IMAGE ID            CREATED             SIZE
+jaedle/alpine-curl-jq-arm32v7   latest              3597ec517359        10 hours ago        7.06MB
+# https://hub.docker.com/r/jaedle/alpine-curl-jq-arm32v7
+
+
