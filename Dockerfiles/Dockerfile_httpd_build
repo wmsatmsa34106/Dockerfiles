@@ -156,11 +156,22 @@ EXPOSE 80
 # ----
 # メンテナンス
 # docker exec -u "www-data" -it c202601a8220 ash
+# docker exec -u "www-data" -it c202601a8220 ash
 # # https://qiita.com/yumenomatayume/items/b28edbaf40a293519b8a
 
-# docker exec -u "root" -it c202601a8220 apk add bash
-# docker exec -u "www-data" -it c202601a8220 bash
+# # docker exec -u "root" -it c202601a8220 apk add bash
+# # docker exec -u "www-data" -it c202601a8220 bash
+# docker images httpd_build
+# docker run --rm -d -p 8080:80 httpd_build
+# # http://docs.docker.jp/v17.06/engine/reference/commandline/ps.html#id9
+# docker ps -f ancestor=httpd_build
+# docker ps -f ancestor=httpd_build  --format "{{.Names}}"
+# _name=$(docker ps -f ancestor=httpd_build  --format "{{.Names}}")
+# docker exec -u "root" -it {gifted_pascal} apk add bash
 # https://qiita.com/yumenomatayume/items/b28edbaf40a293519b8a
+# docker exec -u "www-data" -it {gifted_pascal} bash
+# docker exec -u "root" -it {gifted_pascal} bash
+# docker stop {gifted_pascal}
 
 # https://qiita.com/masakielastic/items/e08240583215884d41a2
 
