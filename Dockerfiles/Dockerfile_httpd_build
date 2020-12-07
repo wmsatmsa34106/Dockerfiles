@@ -1,102 +1,105 @@
-# Docker/ Jenkins
-# https://qiita.com/legitwhiz/items/e6ac1f5a94f09ff2bb1d
-# Docker/GitBucket
-# https://qiita.com/legitwhiz/items/b1e3b39364e5effb9338
-# -- --------------------------------------------------------- --
-
-# # docker pull openjdk:15-alpine
-# # docker pull openjdk:16-alpine
-# #
-# # docker run -it f02adfce91a2 jshell
-# #
-# # # docker images
-# # REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-# # openjdk             15-alpine           f02adfce91a2        3 months ago        343MB
-# #
-# # docker images | grep jdk
-# # openjdk                              16-alpine                                        55f9129764e2        10 days ago         321MB
-# # openjdk                              15-alpine                                        f02adfce91a2        3 months ago        343MB
-# #
-# #
-# # docker run -it f02adfce91a2 jshell
-# # docker run -it 55f9129764e2 jshell
-
-
-
+# # Docker/ Jenkins
+# # https://qiita.com/legitwhiz/items/e6ac1f5a94f09ff2bb1d
+# # Docker/GitBucket
+# # https://qiita.com/legitwhiz/items/b1e3b39364e5effb9338
+# # -- --------------------------------------------------------- --
 # 
-# # volumeは事前に作成する必要があるのと、基本的なボリューム操作コマンド 
-# docker run -it -v /var/www/html --name phptest busybox
-# docker volume ls & REM Dockerコンソール上からは確認きる？ 
-# # https://www.public.ne.jp/2019/03/08/docker-7/
-# docker start phptest
-# docker attach phptet 
-# # phpinfo()のファイルを /var/www/html/info.php に作成 
-# 
-# docker exec -it {loving_wiles} /bin/sh 
-# docker stop {loving_wiles} 
+# # # docker pull openjdk:15-alpine
+# # # docker pull openjdk:16-alpine
+# # #
+# # # docker run -it f02adfce91a2 jshell
+# # #
+# # # # docker images
+# # # REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+# # # openjdk             15-alpine           f02adfce91a2        3 months ago        343MB
+# # #
+# # # docker images | grep jdk
+# # # openjdk                              16-alpine                                        55f9129764e2        10 days ago         321MB
+# # # openjdk                              15-alpine                                        f02adfce91a2        3 months ago        343MB
+# # #
+# # #
+# # # docker run -it f02adfce91a2 jshell
+# # # docker run -it 55f9129764e2 jshell
 # 
 # 
-# docker run -it -v /var/www/html --name phptest busybox 
 # 
-
-
-
-# composer 
-# 公式 
-# https://getcomposer.org/doc/ 
-# https://getcomposer.org/doc/03-cli.md#environment-variables
-
-# https://getcomposer.org/download/ 
-cd /var/wwww/html 
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" 
-php -r "unlink('composer-setup.php');"
-cp -p composer.phar /usr/local/bin/composer
-
-
-# php8-on-docker#新機能のお試し 
+# # 
+# # # volumeは事前に作成する必要があるのと、基本的なボリューム操作コマンド 
+# # docker run -it -v /var/www/html --name phptest busybox
+# # docker volume ls & REM Dockerコンソール上からは確認きる？ 
+# # # https://www.public.ne.jp/2019/03/08/docker-7/
+# # docker start phptest
+# # docker attach phptet 
+# # # phpinfo()のファイルを /var/www/html/info.php に作成 
+# # 
+# # docker exec -it {loving_wiles} /bin/sh 
+# # docker stop {loving_wiles} 
+# # 
+# # 
+# # docker run -it -v /var/www/html --name phptest busybox 
+# # 
 # 
-# https://blog.shin1x1.com/entry/php8-on-docker#%E6%96%B0%E6%A9%9F%E8%83%BD%E3%81%AE%E3%81%8A%E8%A9%A6%E3%81%97https://sakura-editor.github.io/help/HLP000035.html 
 # 
-# https://sitest.jp/blog/?p=8823  
 # 
- 
+# # composer 
+# # 公式 
+# # https://getcomposer.org/doc/ 
+# # https://getcomposer.org/doc/03-cli.md#environment-variables
 # 
-# # docker run --rm -p 8000:80 php:8.0.0RC5-cli-alpine php -S 0.0.0.0:80 
+# # https://getcomposer.org/download/ 
+### cd /var/wwww/html 
+# php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" 
+# php -r "unlink('composer-setup.php');"
+### # cp -p composer.phar /usr/local/bin/composer
 # 
-# # docker run --rm -p 8000:80 -v C:/User/makiosato:/var/www/html php:8.0.0RC5-cli-alpine php -S 0.0.0.0:80 -t /var/www/html/ 
 # 
-# docker run --rm -p 8000:80 -v /var/www/html --volumes-from phptest php:8.0.0RC5-cli-alpine php -S 0.0.0.0:80 -t /var/www/html/ 
-# 
+# # php8-on-docker#新機能のお試し 
+# # 
+# # https://blog.shin1x1.com/entry/php8-on-docker#%E6%96%B0%E6%A9%9F%E8%83%BD%E3%81%AE%E3%81%8A%E8%A9%A6%E3%81%97https://sakura-editor.github.io/help/HLP000035.html 
+# # 
+# # https://sitest.jp/blog/?p=8823  
+# # 
 #  
+# # 
+# # # docker run --rm -p 8000:80 php:8.0.0RC5-cli-alpine php -S 0.0.0.0:80 
+# # 
+# # # docker run --rm -p 8000:80 -v C:/User/makiosato:/var/www/html php:8.0.0RC5-cli-alpine php -S 0.0.0.0:80 -t /var/www/html/ 
+# # 
+# # docker run --rm -p 8000:80 -v /var/www/html --volumes-from phptest php:8.0.0RC5-cli-alpine php -S 0.0.0.0:80 -t /var/www/html/ 
+# # 
+# #  
+# # 
+# # docker ps | grep php | gawk "{print $NF}" & docker ps | grep php | gawk "{print $NF}" | CLIP 
+# # 
+# #  
+# # 
+# # docker exec -it {loving_wiles} /bin/sh 
+# # 
+# # docker stop {loving_wiles} 
+# # 
+# #  
+# # 
+# # docker run -it -v /var/www/html --name phptest busybox 
+# # 
+# # 
+# # 
 # 
-# docker ps | grep php | gawk "{print $NF}" & docker ps | grep php | gawk "{print $NF}" | CLIP 
 # 
-#  
+# # docker build -f %AppData%\Docker\Dockerfiles\Dockerfile_httpd_build -t httpd_build .
+# # https://www.public.ne.jp/2019/01/25/docker-4/
+# # docker build -f $(cmd /c'ECHO %AppData%\Docker\Dockerfiles\Dockerfile_httpd_build' | sed -e 's#C:#/c#g' -e 's#\\#/#g' -e 's/"//g') -t httpd_build .
+# # docker build -f $(cmd /c'ECHO %AppData%\Docker\githubDockerfiles\Dockerfiles\Dockerfiles\Dockerfile_httpd_build' | sed -e 's#C:#/c#g' -e 's#\\#/#g' -e 's/"//g') -t httpd_build .
+# C:\Users\makiosato\AppData\Roaming\Docker\githubDockerfiles\Dockerfiles\Dockerfiles\Dockerfile_httpd_build
 # 
-# docker exec -it {loving_wiles} /bin/sh 
+# # -- ------------------------------------------------------------
+# # -- 
+# # https://docs.docker.jp/engine/userguide/dockervolumes.html
+# # -- 
+# # https://matsuand.github.io/docs.docker.jp.onthefly/storage/volumes/
+# # -- 
+# # http://www.tohoho-web.com/docker/docker_volume.html
+# # -- ------------------------------------------------------------
 # 
-# docker stop {loving_wiles} 
-# 
-#  
-# 
-# docker run -it -v /var/www/html --name phptest busybox 
-# 
-# 
-# 
-
-
-# docker build -f %AppData%\Docker\Dockerfiles\Dockerfile_httpd_build -t httpd_build .
-# https://www.public.ne.jp/2019/01/25/docker-4/
-
-# -- ------------------------------------------------------------
-# -- 
-# https://docs.docker.jp/engine/userguide/dockervolumes.html
-# -- 
-# https://matsuand.github.io/docs.docker.jp.onthefly/storage/volumes/
-# -- 
-# http://www.tohoho-web.com/docker/docker_volume.html
-# -- ------------------------------------------------------------
-
 
 # -- ------------------------------------------------------------------------------------------------------------
 # ベースイメージを指定
