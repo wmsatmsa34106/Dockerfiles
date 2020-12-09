@@ -36,6 +36,9 @@
 # # docker stop {loving_wiles} 
 # # 
 # # 
+
+# Volume作成は .\Dockerfile.Container を参考に
+
 # # docker run -it -v /var/www/html --name phptest busybox 
 # # 
 # 
@@ -158,7 +161,8 @@ EXPOSE 80
 # docker exec -u "www-data" -it c202601a8220 ash
 # docker exec -u "www-data" -it c202601a8220 ash
 # # https://qiita.com/yumenomatayume/items/b28edbaf40a293519b8a
-
+ 
+# # docker exec -u "root" -it c202601a8220 apk add bash
 # # docker exec -u "root" -it c202601a8220 apk add bash
 # # docker exec -u "www-data" -it c202601a8220 bash
 # docker images httpd_build
@@ -167,13 +171,27 @@ EXPOSE 80
 # docker ps -f ancestor=httpd_build
 # docker ps -f ancestor=httpd_build  --format "{{.Names}}"
 # _name=$(docker ps -f ancestor=httpd_build  --format "{{.Names}}")
-# docker exec -u "root" -it {gifted_pascal} apk add bash
+# # docker exec -u "root" -it {gifted_pascal} apk add bash
+# docker exec -u "root" -it ${_name} apk add bash
 # https://qiita.com/yumenomatayume/items/b28edbaf40a293519b8a
-# docker exec -u "www-data" -it {gifted_pascal} bash
-# docker exec -u "root" -it {gifted_pascal} bash
-# docker stop {gifted_pascal}
-
+# # docker exec -u "www-data" -it {gifted_pascal} bash
+# docker exec -u "www-data" -it ${_name} bash
+# # docker exec -u "root" -it {gifted_pascal} bash
+# docker exec -u "root" -it ${_name} bash
+# docker stop ${_name}
+ 
 # https://qiita.com/masakielastic/items/e08240583215884d41a2
-
+ 
 # php
 # apk add composer
+
+
+
+docker run -it -v /var/www/html --name phptest busybox
+docker volume ls & REM Dockerコンソール上からは確認できる？
+# https://www.public.ne.jp/2019/03/08/docker-7/
+docker start phptest
+docker attach phptest
+# phpinfo()のファイルを /var/www/html/info.php に作成
+ 
+docker run --rm -p 8000:80 -v /var/www/html --volumes-from phptest php:8.0.0RC5-cli-alpine php -S 0.0.0.0:80 -t /var/www/html/ 
