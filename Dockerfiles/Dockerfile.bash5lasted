@@ -8,9 +8,13 @@
 FROM alpine:3.12.1
 
 # https://git.savannah.gnu.org/cgit/bash.git/commit/?h=devel
+# https://git.savannah.gnu.org/cgit/bash.git/?h=devel
 # ENV _BASH_COMMIT 37f5a0380524f487f7dbf6737ee30e8510967af6
-ENV _BASH_COMMIT 37b22abee700eb1b0c5b6926ab32630a429c1183
-ENV _BASH_VERSION devel-20201103
+# ENV _BASH_COMMIT 37b22abee700eb1b0c5b6926ab32630a429c1183
+# https://git.savannah.gnu.org/cgit/bash.git/tag/?h=bash-5.1
+# https://git.savannah.gnu.org/cgit/bash.git/commit/?h=bash-5.1&id=8868edaf2250e09c4e9a1c75ffe3274f28f38581
+ENV _BASH_COMMIT 8868edaf2250e09c4e9a1c75ffe3274f28f38581
+ENV _BASH_VERSION bash5.1rel,
 # prefixed with "_" since "$BASH..." have meaning in Bash parlance
 
 RUN set -eux; \
@@ -95,10 +99,12 @@ RUN set -eux; \
 CMD ["bash"]
 
 
-# docker build -f %APPDATA%\Docker\Dockerfiles\Dockerfile.bash5lasted -t bash5lasted .
-# docker build -f %APPDATA%\Docker\Dockerfiles\Dockerfile.bash5lasted -t bash:5lasted .
+# docker build -f %APPDATA%\Docker\githubDockerfiles\Dockerfiles\Dockerfiles\Dockerfile.bash5lasted -t bash5lasted .
+# docker build -f %APPDATA%\Docker\githubDockerfiles\Dockerfiles\Dockerfiles\Dockerfile.bash5lasted -t bash:5lasted .
+# docker build -f %APPDATA%\Docker\githubDockerfiles\Dockerfiles\Dockerfiles\Dockerfile.bash5lasted -t bash:5.1 .
 # docker build -f %APPDATA%\Docker\Dockerfiles\Dockerfile.bash5lasted -t bash:5.1.0rc3 .
-# docker build -f %APPDATA%\Docker\Dockerfiles\Dockerfile.bash5lasted -t tmsa34106/bash:5lasted .
+# docker build -f %APPDATA%\Docker\githubDockerfiles\Dockerfiles\Dockerfiles\Dockerfile.bash5lasted -t tmsa34106/bash:5lasted .
+# docker build -f %APPDATA%\Docker\githubDockerfiles\Dockerfiles\Dockerfiles\Dockerfile.bash5lasted -t tmsa34106/bash:5.1.rel .
 # docker build -f %APPDATA%\Docker\Dockerfiles\Dockerfile.bash5lasted -t tmsa34106/bash:5.1.0rc3 .
 # docker images | grep bash5lasted
 # docker images bash5lasted -q # docker images | grep bash5lasted | gawk "{print $3}" | CLIP
@@ -127,3 +133,9 @@ CMD ["bash"]
 # https://ftp.gnu.org/gnu/bash/
 #  https://ftp.gnu.org/gnu/bash/bash-5.1-rc3.tar.gz
 # https://github.com/tianon/docker-bash/blob/be3797835c035ee8b4a15ea1140c2eee05c90c7e/5.1-rc/Dockerfile
+
+
+# https://hub.docker.com/repository/docker/tmsa34106/bash/tags?page=1&ordering=last_updated
+
+# https://hub.docker.com/layers/tmsa34106/bash/5.1.rel/images/sha256-e471d1fd2ce2ba4085e6d8e88590fb802191458c0ca37bc928ac11f12cd6aded?context=repo
+
