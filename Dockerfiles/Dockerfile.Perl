@@ -67,3 +67,11 @@ docker images wlmb/perldatalanguage:latest
 # [0 1 2 3 4 5 6 7 8 9]
 # $ 
 
+# https://hub.docker.com/_/perl?tab=tags&page=1&ordering=last_updated
+# docker pull perl:slim-threaded-stretch
+# docker pull perl:5.32.0-slim-threaded-stretch
+# $ docker images perl
+# REPOSITORY          TAG                            IMAGE ID            CREATED             SIZE
+# perl                5.32.0-slim-threaded-stretch   45d62f849542        3 weeks ago         112MB
+# perl                slim-threaded-stretch          45d62f849542        3 weeks ago         112MB
+# 
