@@ -1,0 +1,59 @@
+
+# google : dockerhub gcc
+
+# $ docker images gcc:latest
+# 
+# REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+# gcc          latest    8d4c76c496ab   8 weeks ago   1.19GB
+# 
+
+# https://hub.docker.com/r/frolvlad/alpine-gcc
+
+# docker pull frolvlad/alpine-gcc
+
+# $ docker images frolvlad/alpine-gcc
+# REPOSITORY            TAG       IMAGE ID       CREATED        SIZE
+# frolvlad/alpine-gcc   latest    21e502a1adfc   5 months ago   144MB
+# 
+
+# $ docker run --rm -ti frolvlad/alpine-gcc gcc --version
+
+# gcc (Alpine 9.3.0) 9.3.0
+# Copyright (C) 2019 Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.  There is NO
+# warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# 
+
+
+# https://hub.docker.com/_/gcc
+
+# $ df -h
+# Filesystem            Size  Used Avail Use% Mounted on
+# C:/Program Files/Git  110G   85G   26G  77% /
+# D:                    366G   74G  293G  21% /d
+# Z:                    251G  1.5G  237G   1% /z
+# 
+# makiosato@DESKTOP-K7V1OQI MINGW64 ~
+# $ docker rmi gcc:latest
+# Untagged: gcc:latest
+# Untagged: gcc@sha256:af4e5e1c4933dd0d6ee8b4dbfe6984686cc050dff7feedf0a63d4550c828c60e
+# Untagged: gcc@sha256:e6eb4d49cd603b7f99d851368419d8d34e937501045860cd52d212ab1510bdbc
+# Deleted: sha256:8d4c76c496abec7bd8124bb7594392a33a5e0c8812e6e90d5034775af152deac
+# Deleted: sha256:fbc7752367abed6513b4d47d873a73c6fdda36a8ddca4d14cd2224fa53f650ff
+# Deleted: sha256:e5c1d9ee4e30476d5b58dc2d7c061ef3d4dfa439f3d77eeaee2cdacc82cd4a73
+# Deleted: sha256:0aedbc9cd1c0f6399cdaac9912186a8211827f71c97fccc9b6559fc6156de487
+# Deleted: sha256:c210eef1dad5346db599320df96e54df50772accce4fd6c710ab0aaa33b176b6
+# Deleted: sha256:ea384d954ebe3442448e8fbe67aa994869faa6cb8e60848f11ddaa3432ba6dfd
+# Deleted: sha256:d5d618196ec30fcdba1d210f135b4911b9dbdc79fdd729a9a9c3683a6a9b9308
+# Deleted: sha256:4bb57adf9037e4da45f2dbc0f84a7e9d8da6847bef3e63d09c8a9d8465f4d2c6
+# Deleted: sha256:5173011923d00f0fe606ecceda93ea88f17dc77e0b026df802c9aeb31bc1eac6
+# Deleted: sha256:9780f6d83e45878749497a6297ed9906c19ee0cc48cc88dc63827564bb8768fd
+# 
+# makiosato@DESKTOP-K7V1OQI MINGW64 ~
+# $ df -h
+# Filesystem            Size  Used Avail Use% Mounted on
+# C:/Program Files/Git  110G   85G   26G  77% /
+# D:                    366G   74G  293G  21% /d
+# Z:                    251G  1.5G  237G   1% /z
+
+
