@@ -160,55 +160,88 @@ WORKDIR /usr/src/perl
 #     && rm -fr ./cpanm /root/.cpanm /usr/src/perl /usr/src/App-cpanminus-1.7044* /tmp/*
 
 # Perl5.33.x
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-       bzip2 \
-       ca-certificates \
-       # cpio \
-       curl \
-       dpkg-dev \
-       # file \
-       gcc \
-       # g++ \
-       # libbz2-dev \
-       # libdb-dev \
-       libc6-dev \
-       # libgdbm-dev \
-       # liblzma-dev \
-       make \
-       netbase \
-       patch \
-       # procps \
-       # zlib1g-dev \
-       xz-utils \
+RUN apt-get update 
+
+### ### -- --------------------------------------------------------------------------------------------------------
+### ### -- 
+### ### -- . buildに失敗か、developer tool(RHEL風)のPerlしかないなどなので検証のための領域
+### ### -- 
+### ### -- 
+
+## $ docker images perl:5.33.4-debian-stretch-slim
+## REPOSITORY   TAG                          IMAGE ID       CREATED         SIZE
+## perl         5.33.4-debian-stretch-slim   33d3f4fc801d   5 minutes ago   71.9MB
+
+### docker run --name perl533buildwork -ti perl:5.33.4-debian-stretch-slim sh
+### # Ctrl+D で抜ける
+
+## https://qiita.com/yosisa/items/a5670e4da3ff22e9411a
+## https://qiita.com/leomaro7/items/649732faf2f632419f11
+
+# docker start perl533buildwork
+# docker attach perl533buildwork
+
+
+### ### -- 
+### ### -- 
+### ### -- .
+### ### -- 
+### ### -- --------------------------------------------------------------------------------------------------------
+
+### \
+### .    && apt-get install -y --no-install-recommends \
+### .       bzip2 \
+### .       ca-certificates \
+### .       # cpio \
+### .       curl \
+### .       dpkg-dev \
+### .       # file \
+### .       gcc \
+### .       # g++ \
+### .       # libbz2-dev \
+### .       # libdb-dev \
+### .       libc6-dev \
+### .       # libgdbm-dev \
+### .       # liblzma-dev \
+### .       make \
+### .       netbase \
+### .       patch \
+### .       # procps \
+### .       # zlib1g-dev \
+### .       xz-utils \
 # ###  https://www.cpan.org/src/5.0?term=2020Q4&ver=perl-5.33.4
-    && curl -SL https://www.cpan.org/src/5.0/perl-5.33.4.tar.xz -o perl-5.33.4.tar.xz \
-    && echo '76f763075aa034deac1c71584b4f5beec1c81f60f8887ce8afe940f5ecac2727 *perl-5.33.4.tar.xz' | sha256sum -c - \
-    && tar --strip-components=1 -xaf perl-5.33.4.tar.xz -C /usr/src/perl \
-    && rm perl-5.33.4.tar.xz \
-#    && cat *.patch | patch -p1 \
-    && gnuArch="$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)" \
-    && archBits="$(dpkg-architecture --query DEB_BUILD_ARCH_BITS)" \
-    && archFlag="$([ "$archBits" = '64' ] && echo '-Duse64bitall' || echo '-Duse64bitint')" \
-#-#    && yes | ./Configure -Darchname="$gnuArch" "$archFlag" -Dusethreads -Duseshrplib -Dvendorprefix=/usr/local  -des \
-#+#    && yes | ./Configure -Darchname="$gnuArch" "$archFlag" -Dusethreads -Duseshrplib -Dvendorprefix=/usr/local  -des \
-# ### https://postd.cc/a-little-story-about-the-yes-unix-command/
-    && ./Configure -Darchname="$gnuArch" "$archFlag" -Dusethreads -Duseshrplib -Dvendorprefix=/usr/local  -des -Dusedevel \
-# ### https://tutorial.perlzemi.com/blog/20141219141897.html
-    && make -j$(nproc) \
-    && TEST_JOBS=$(nproc) make test_harness \
-    && make install \
-    && cd /usr/src \
-# ### https://www.cpan.org/authors/id/M/MI/MIYAGAWA?term=2020Q4&ver=App-cpanminus-1.7044
-    && curl -LO https://www.cpan.org/authors/id/M/MI/MIYAGAWA/App-cpanminus-1.7044.tar.gz \
-    && echo '9b60767fe40752ef7a9d3f13f19060a63389a5c23acc3e9827e19b75500f81f3 *App-cpanminus-1.7044.tar.gz' | sha256sum -c - \
-    && tar -xzf App-cpanminus-1.7044.tar.gz && cd App-cpanminus-1.7044 && perl bin/cpanm . && cd /root \
-    && savedPackages="make netbase" \
-    && apt-mark auto '.*' > /dev/null \
-    && apt-mark manual $savedPackages \
-    && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
-    && rm -fr /var/cache/apt/* /var/lib/apt/lists/* \
-    && rm -fr ./cpanm /root/.cpanm /usr/src/perl /usr/src/App-cpanminus-1.7044* /tmp/*
+
+
+
+### #    && curl -SL https://www.cpan.org/src/5.0/perl-5.33.4.tar.xz -o perl-5.33.4.tar.xz \
+### #    && echo '76f763075aa034deac1c71584b4f5beec1c81f60f8887ce8afe940f5ecac2727 *perl-5.33.4.tar.xz' | sha256sum -c - \
+### #    && tar --strip-components=1 -xaf perl-5.33.4.tar.xz -C /usr/src/perl \
+### #    && rm perl-5.33.4.tar.xz \
+
+### #    && cat *.patch | patch -p1 \
+###     && gnuArch="$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)" \
+###     && archBits="$(dpkg-architecture --query DEB_BUILD_ARCH_BITS)" \
+###     && archFlag="$([ "$archBits" = '64' ] && echo '-Duse64bitall' || echo '-Duse64bitint')" \
+### #-#    && yes | ./Configure -Darchname="$gnuArch" "$archFlag" -Dusethreads -Duseshrplib -Dvendorprefix=/usr/local  -des \
+### #+#    && yes | ./Configure -Darchname="$gnuArch" "$archFlag" -Dusethreads -Duseshrplib -Dvendorprefix=/usr/local  -des \
+### # ### https://postd.cc/a-little-story-about-the-yes-unix-command/
+###     && ./Configure -Darchname="$gnuArch" "$archFlag" -Dusethreads -Duseshrplib -Dvendorprefix=/usr/local  -des -Dusedevel \
+### # ### https://tutorial.perlzemi.com/blog/20141219141897.html
+#     && make -j$(nproc) \
+#    && TEST_JOBS=$(nproc) make test_harness \
+#    && make install \
+# # --
+#     && cd /usr/src \
+# # ### https://www.cpan.org/authors/id/M/MI/MIYAGAWA?term=2020Q4&ver=App-cpanminus-1.7044
+#     && curl -LO https://www.cpan.org/authors/id/M/MI/MIYAGAWA/App-cpanminus-1.7044.tar.gz \
+#     && echo '9b60767fe40752ef7a9d3f13f19060a63389a5c23acc3e9827e19b75500f81f3 *App-cpanminus-1.7044.tar.gz' | sha256sum -c - \
+#     && tar -xzf App-cpanminus-1.7044.tar.gz && cd App-cpanminus-1.7044 && perl bin/cpanm . && cd /root \
+#     && savedPackages="make netbase" \
+#     && apt-mark auto '.*' > /dev/null \
+#     && apt-mark manual $savedPackages \
+#     && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
+#     && rm -fr /var/cache/apt/* /var/lib/apt/lists/* \
+#     && rm -fr ./cpanm /root/.cpanm /usr/src/perl /usr/src/App-cpanminus-1.7044* /tmp/*
 
 # https://www.cpan.org/src/5.0/ , find : perl-5.33.4
 # # 
@@ -218,13 +251,14 @@ RUN apt-get update \
 
 WORKDIR /
 
-CMD ["perl5.32.0","-de0"]
+CMD ["perl5.33.4","-de0"]
 
 # docker build -f $(cmd /c'ECHO %AppData%\Docker\githubDockerfiles\Dockerfiles\Dockerfiles\Dockerfile.Perl_build' | sed -e 's#C:#/c#g' -e 's#\\#/#g' -e 's/"//g') -t perl:5.32.0-debian-stretch-slim .
 # # docker build -f $(cmd /c'ECHO %AppData%\Docker\githubDockerfiles\Dockerfiles\Dockerfiles\Dockerfile.Perl_build' | sed -e 's#C:#/c#g' -e 's#\\#/#g' -e 's/"//g') -t tmsa34106/perl:5.32.0-debian-stretch-slim .
 
 # docker build -f $(cmd /c'ECHO %AppData%\Docker\githubDockerfiles\Dockerfiles\Dockerfiles\Dockerfile.Perl_build' | sed -e 's#C:#/c#g' -e 's#\\#/#g' -e 's/"//g') -t perl:5.33.4-debian-stretch-slim .
 # # docker build -f $(cmd /c'ECHO %AppData%\Docker\githubDockerfiles\Dockerfiles\Dockerfiles\Dockerfile.Perl_build' | sed -e 's#C:#/c#g' -e 's#\\#/#g' -e 's/"//g') -t tmsa34106/perl:5.33.4-debian-stretch-slim .
+
 
 
 # [+] Building 1464.6s (9/9) FINISHED
