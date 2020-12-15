@@ -181,6 +181,32 @@ RUN apt-get update
 # docker start perl533buildwork
 # docker attach perl533buildwork
 
+bash
+
+# apt-get install -y --no-install-recommends \
+apt-get install -y --no-install-recommends \
+apt-get install -y bzip2 #\
+apt-get install -y ca-certificates #\
+# cpio \
+apt-get install -y curl #\
+apt-get install -y dpkg-dev #\
+# file \
+apt-get install -y gcc #\
+# g++ \
+# libbz2-dev \
+# libdb-dev \
+libc6-dev #\
+# libgdbm-dev \
+# liblzma-dev \
+make \
+netbase \
+patch \
+# procps \
+# zlib1g-dev \
+xz-utils 
+
+
+
 
 ### ### -- 
 ### ### -- 
