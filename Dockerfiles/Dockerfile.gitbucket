@@ -19,10 +19,29 @@
 # _gitbacket_path=$(echo ${APPDATA} | sed -e 's#C:#/d#g' -e 's#\\#/#g')/gitbucket-data
 # _name_container=dockergitbucket
 # _tgt_image=gitbucket/gitbucket;
-# docker run --rm -d -p 8080:8080 -p 22:22 --name dockergitbucket  -v ${_gitbacket_path}:/gitbucket gitbucket/gitbucket
-# # docker ps -f ancestor=gitbucket/gitbucket  --format "{{.Names}}"
+# # docker run --rm -d -p 8080:8080 -p 22:22 --name dockergitbucket  -v ${_gitbacket_path}:/gitbucket gitbucket/gitbucket
+# docker run --rm -d -p 8080:8080  -p 29418:29418 --name ${_name_container} -v ${_gitbacket_path}:/gitbucket ${_tgt_image}
+# # cf. https://qiita.com/legitwhiz/items/b1e3b39364e5effb9338
+# # docker ps -f ancestor=gitbucket/gitbucket --format "{{.Names}}"
 # docker ps -f ancestor=${_tgt_image} --format "{{.Names}}"
 
+
+# inspect で Mounts を見たところ、なんかおかしなパスになる模様
+
+
+
+
+# DOSならホストに保存できる
+
+# REM SET _NAME_CONTAINER=dockergitbucket
+# REM SET _TGT_IMAGE=gitbucket/gitbucket
+# REM REM docker run --rm -d -p 8080:8080  -v %AppData:C:=D:%\gitbucket-data:/gitbucket gitbucket/gitbucket
+# REM REM docker run --rm -d -p 8080:8080 --name %_NAME_CONTAINER% -v %AppData:C:=D:%\gitbucket-data:/gitbucket %_TGT_IMAGE%
+# REM docker run --rm -d -p 8080:8080 --name dockergitbucket -v %AppData:C:=D:%\gitbucket-data:/gitbucket gitbucket/gitbucket
+# REM REM REM 起動までに数分かかる（場合もある）
+# REM docker ps -f ancestor=gitbucket/gitbucket --format "{{.Names}}"
+# REM docker inspect %_NAME_CONTAINER%
+# REM REM cf. https://mrkmyki.com/post-934
 
 # docker-composer : now edit .yaml...
 
