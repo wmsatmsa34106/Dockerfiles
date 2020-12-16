@@ -1,0 +1,52 @@
+# https://github.com/gitbucket/gitbucket
+
+# https://github.com/gitbucket/gitbucket/wiki
+
+# https://github.com/gitbucket/gitbucket/wiki/Docker
+
+# https://github.com/gitbucket/gitbucket/wiki/Docker#other-images
+# 
+# # https://github.com/f99aq8ove/docker-gitbucket
+# # https://hub.docker.com/r/million12/gitbucket/
+# # https://gitbucket.pgollor.de/docker/gitbucket
+# # https://github.com/int128/gitbucket-docker
+# # https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page=1&pullCount=0&q=gitbucket&starCount=0
+# 
+
+# # org. # docker run -d -p 8080:8080  -v `pwd`/gitbucket-data:/gitbucket gitbucket/gitbucket
+# # GitBash
+# mkdir $(echo ${APPDATA} | sed -e 's#C:#/d#g' -e 's#\\#/#g')/gitbucket-data
+# _gitbacket_path=$(echo ${APPDATA} | sed -e 's#C:#/d#g' -e 's#\\#/#g')/gitbucket-data
+# _name_container=dockergitbucket
+# _tgt_image=gitbucket/gitbucket;
+# docker run --rm -d -p 8080:8080 -p 22:22 --name dockergitbucket  -v ${_gitbacket_path}:/gitbucket gitbucket/gitbucket
+# # docker ps -f ancestor=gitbucket/gitbucket  --format "{{.Names}}"
+# docker ps -f ancestor=${_tgt_image} --format "{{.Names}}"
+
+
+# docker-composer : now edit .yaml...
+
+# k8s : now...
+
+
+# https://github.com/gitbucket/gitbucket/tree/master/doc
+
+
+# ここからCIで最新版が取れる？2020年12月16日
+# https://search.maven.org/artifact/io.github.gitbucket/gitbucket_2.13/4.35.0/jar
+# ... # 右上の "Downloads" より、こういったリンク
+# https://search.maven.org/remotecontent?filepath=io/github/gitbucket/gitbucket_2.13/4.35.0/gitbucket_2.13-4.35.0.jar ... ただし、５M。小さくないですか？
+
+# # https://github.com/gitbucket/gitbucket/releases/tag/4.34.0 ... 45Mある
+
+# # etc.
+# # 
+# 
+# # GitBucket に参加しよう
+# # https://qiita.com/nazoking@github/items/4518266ff0f4fd92bd0a
+# 
+# # https://teams.qiita.com/customers/cancerscan/
+
+# https://gitbucket.github.io/
+
+
