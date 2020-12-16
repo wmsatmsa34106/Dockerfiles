@@ -96,5 +96,6 @@
 # https://hub.docker.com/r/webdevops/php-apache/tags?page=1&ordering=last_updated
 
 # docker pull webdevops/php-apache:8.0
-# 
+# docker run --rm -d -p8080-8090:80 webdevops/php-apache:8.0
+
 
