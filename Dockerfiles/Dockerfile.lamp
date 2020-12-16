@@ -1,0 +1,100 @@
+
+# google lamp compose
+
+# cf. ./Dockerfile_lamp
+# cf. ./DockerComposer.LAMP.yaml
+
+# https://codeaid.jp/blog/docker-lamp/
+
+# https://qiita.com/dai-andy1976/items/24228211f2bb1a4cd09e
+
+# 【解決】Docker Composeで原因不明の認証エラー
+# https://www.rk-k.com/archives/3633
+
+# ... ここでとまった、
+# 
+# $ docker-compose build
+# Traceback (most recent call last):
+#   File "site-packages\docker\api\client.py", line 259, in _raise_for_status
+#   File "site-packages\requests\models.py", line 941, in raise_for_status
+# requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: http+docker://localnpipe/version
+# 
+# During handling of the above exception, another exception occurred:
+# 
+# Traceback (most recent call last):
+#   File "site-packages\docker\api\client.py", line 205, in _retrieve_server_version
+#   File "site-packages\docker\api\daemon.py", line 181, in version
+#   File "site-packages\docker\api\client.py", line 265, in _result
+#   File "site-packages\docker\api\client.py", line 261, in _raise_for_status
+#   File "site-packages\docker\errors.py", line 31, in create_api_error_from_http_exception
+# docker.errors.APIError: 500 Server Error: Internal Server Error ("b'open \\\\.\\pipe\\docker_engine_linux: The system cannot find the file specified.'")
+# 
+# During handling of the above exception, another exception occurred:
+# 
+# Traceback (most recent call last):
+#   File "docker-compose", line 3, in <module>
+#   File "compose\cli\main.py", line 67, in main
+#   File "compose\cli\main.py", line 123, in perform_command
+#   File "compose\cli\command.py", line 69, in project_from_options
+#   File "compose\cli\command.py", line 132, in get_project
+#   File "compose\cli\docker_client.py", line 43, in get_client
+#   File "compose\cli\docker_client.py", line 170, in docker_client
+#   File "site-packages\docker\api\client.py", line 188, in __init__
+#   File "site-packages\docker\api\client.py", line 213, in _retrieve_server_version
+# docker.errors.DockerException: Error while fetching server API version: 500 Server Error: Internal Server Error ("b'open \\\\.\\pipe\\docker_engine_linux: The system cannot find the file specified.'")
+# [5412] Failed to execute script docker-compose
+# 
+
+# PUSHD %AppData%\Docker\githubDockerfiles\DockerCompose
+
+
+
+# -- ----------------------------------------------------------------------------------------------- -- 
+
+# google : dockercompose small
+# https://qiita.com/yuta-ushijima/items/d3d98177e1b28f736f04
+# https://qiita.com/TsutomuNakamura/items/7e90e5efb36601c5bc8a
+
+# docker-composeコマンド確認
+
+# # https://qiita.com/TsutomuNakamura/items/7e90e5efb36601c5bc8a#docker-compose-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB
+# $ docker-compose --version
+# docker-compose version 1.27.4, build 40524192
+
+# 
+# # (Working dir)
+# # +- docker-compose.yml
+# # +- app-server/
+# #    +- Dockerfile
+# #    +- src/
+# #      +- app.js
+# 
+
+# PUSHD %AppData%\Docker\githubDockerfiles\DockerCompose
+# MKDIR TsutomuNakamuraSimple20191009
+# PUSHD TsutomuNakamuraSimple20191009
+# MKDIR app-server
+# PUSHD app-server
+# REM MOVE Dockerfile.txt Dockerfile
+# MKDIR src
+# POPD
+
+# https://qiita.com/TsutomuNakamura/items/7e90e5efb36601c5bc8a#application-%E5%81%B4%E3%81%AE%E4%BD%9C%E6%88%90
+
+
+# docker-compose up
+
+
+# google : dockerhub lamp
+# dockerhub,serch lamp
+# https://hub.docker.com/r/lampson0505/ubuntu-phy/tags
+
+# docker pull lampson0505/ubuntu-phy:v7
+
+# apache php
+# https://hub.docker.com/r/webdevops/php-apache
+# https://hub.docker.com/r/webdevops/php-apache/tags?page=1&ordering=last_updated
+
+# docker pull webdevops/php-apache:8.0
+# 
+
