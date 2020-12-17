@@ -95,7 +95,35 @@
 # https://hub.docker.com/r/webdevops/php-apache
 # https://hub.docker.com/r/webdevops/php-apache/tags?page=1&ordering=last_updated
 
-# docker pull webdevops/php-apache:8.0
-# docker run --rm -d -p8080-8090:80 webdevops/php-apache:8.0
+# # docker pull webdevops/php-apache:8.0
+# # docker run --rm -d -p 8080-8090:80 --name phpapache80 webdevops/php-apache:8.0
+#
+
+# docker pull webdevops/php-apache:8.0-alpine
+# docker run --rm -d -p 8080-8090:80 --name phpapache80 webdevops/php-apache:8.0-alpine
+# docker port phpapache80
+# # https://qiita.com/tksugimoto/items/23fcce1b067661e8aa46
+# # # ほぼ同じ
+# # # google:Docker port 幅を持たせて指定 
+# # # google:Docker port 一覧
+# # http://docs.docker.jp/v1.11/engine/reference/commandline/port.html
+# docker exec -ti phpapache80 bash
+# # # google:docker exec, https://qiita.com/yosisa/items/a5670e4da3ff22e9411a ... 大体のことがよくまとまっている
+
+# docker pull webdevops/php-apache:7.4-alpine
+# docker run --rm -d -p 8080-8090:80 --name phpapache74 webdevops/php-apache:7.4-alpine
+# docker port phpapache74
+# docker exec -ti phpapache74 bash
+# # bash # psuhd /app
+# # bash # mkdir composer_test
+# # bash # pushd composer_test
+# # bash # php --ini | grep 'php.ini' ; echo 'check php.ini'
+# # bash # pushd $(php --ini | grep 'php.ini' | awk '{print $NF}')
+# # bash # cp php.ini-development php.ini
+# # bash # popd
+# # bash # pushd $(php --ini | grep 'php.ini' | awk '{print $NF}')
+# # bash # composer ini
+# # bash # composer require nesbot/carbon
+# # bash # composer require symfony/var-dumper
 
 
