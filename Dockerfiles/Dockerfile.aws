@@ -1,0 +1,11 @@
+
+
+# [me.OneDrive.memo]/etc/ aws/brew 
+
+https://hub.docker.com/_/amazonlinux  
+https://qiita.com/yasumon/items/dcf76005b97a02b2de14  
+
+
+docker push awsbrewimg
+
+ 
