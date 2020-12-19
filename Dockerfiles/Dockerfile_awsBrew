@@ -1,0 +1,19 @@
+# PUSHD {PATH}
+# docker build -f %CD%\Dockerfile_awsBrew -t awsbrew:test .
+# docker rmi awsbrew:test
+
+# file : .\Dockerfile.aws
+
+# -- ------------------------------------------------------------------------------------------------------------
+# ベースイメージを指定
+# -- ------------------------------------------------------------------------------------------------------------
+FROM amazonlinux:latest
+
+
+# -- ------------------------------------------------------------------------------------------------------------
+RUN yum groupinstall -y 'Development Tools' && yum install -y curl file git curl-devel
+RUN yum -y install gcc make autoconf sudo diffutils vi wget tar which
+
+RUN adduser brew
+RUN echo 'brew:hoge' |chpasswd
+RUN usermod -G wheel brew
