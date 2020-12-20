@@ -4,6 +4,11 @@
 
 # file : .\Dockerfile.aws
 
+# $ docker images awsbrew:test & REM base のみ
+# REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+# awsbrew      test      905377223a40   9 minutes ago   1.14GB
+
+
 # -- ------------------------------------------------------------------------------------------------------------
 # ベースイメージを指定
 # -- ------------------------------------------------------------------------------------------------------------
@@ -17,3 +22,10 @@ RUN yum -y install gcc make autoconf sudo diffutils vi wget tar which
 RUN adduser brew
 RUN echo 'brew:hoge' |chpasswd
 RUN usermod -G wheel brew
+
+# Step By Step
+
+# https://qiita.com/beeeyan/items/ef72532701bb8219bc55
+# google : dockerhub brew
+
+
