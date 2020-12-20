@@ -6,7 +6,58 @@
 # # Docker、ボリューム(Volume)について真面目に調べた
 # https://qiita.com/gounx2/items/23b0dc8b8b95cc629f32
 
+# Data Volume と Data Volume Container
+# https://qiita.com/sokutou-metsu/items/b83b275198fc9594f5a4
 
+
+
+# 3分くらいで分かるdockerのdata volume
+# https://qiita.com/damele0n/items/ac20e93749eb060fddfa
+
+
+
+# 4.7 Dockerコンテナからの外部ファイルへのアクセス
+# https://docs.oracle.com/cd/E39368_01/E75728/html/section_vtr_p2z_fp.html
+# memo, comment : コンテナに作成した方がよさそう
+
+# -- -------------------------------------------------------------------------------------------- -- 
+# 色々調べた _start_
+
+# google : dockerfileを指定して volume を作成
+
+# Dockerのまとめ - コンテナとボリューム編
+# - この記事で伝えたいこと
+# -- Docker for Mac が使う Dockerの実行環境 moby vm と LinuxKit
+# -- Docker は Mac 上ではなく hyperkitという 仮想マシン上で動いている(Docker for Mac の場合)
+# --- Linux で Dockerを使うときは同じカーネルを使うのでMac環境とかなり異なる
+# -- volume は仮想マシン上の /var/lib/docker/volumes 配下においている
+# https://qiita.com/kompiro/items/7474b2ca6efeeb0df80f
+
+
+
+# 色々調べた _.end._
+# -- -------------------------------------------------------------------------------------------- -- 
+
+
+# -- -------------------------------------------------------------------------------------------- -- 
+#     
+docker volume create --name common_test_volume
+docker volume ls | grep common_test_volume
+docker run -v /:/home/busybox --name common_test_volume --rm -ti busybox:latest sh
+# --
+
+
+# -- -------------------------------------------------------------------------------------------- -- 
+
+# -- -------------------------------------------------------------------------------------------- -- 
+# --
+# bash
+_volume_name=phptest
+docker volume create --name ${_volume_name}
+docker run -v /:/home/busybox --name ${_volume_name} --rm -ti busybox:latest sh
+
+# --
+# -- -------------------------------------------------------------------------------------------- -- 
 
 
 # 
@@ -28,3 +79,6 @@
 # # Dockerfile.scratch より
 # 
 
+# 超軽量ボリューム
+# https://github.com/tianon/dockerfiles/blob/master/sleeping-beauty/sleeping-beauty.asm
+# 
