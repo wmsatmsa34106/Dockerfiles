@@ -3,6 +3,14 @@
 # Docker Blog
 # 
 
+# DockerWSL2がGPUサポート / WSL 2 GPU Support is Here
+# https://www.docker.com/blog/wsl-2-gpu-support-is-here/ 
+
+  # 一次ソースはここだった
+  # Docker Desktop for Windows Homeには何が含まれていますか？/ Docker Desktop for Windows Home is here! 
+  # 2020年3月5日　←ここがすべての情報源だ！ 
+  # https://www.docker.com/blog/docker-desktop-for-windows-home-is-here/ 
+
 # Download and Try the Tech Preview of Docker Desktop for M1
 # https://www.docker.com/blog/download-and-try-the-tech-preview-of-docker-desktop-for-m1/
 # Docker In ARM
@@ -23,7 +31,12 @@
 # # . Join Dr. Werner Vogels as he goes behind the scenes to show how Amazon is solving today’s hardest technology problems. Based on his experience working with some of the largest and most successful applications in the world, Dr. Vogels shares his insights on building truly resilient architectures and what that means for the future of software development.
 # # まさかの指導教官が、タンネンバウム大先生
 
-
+# そのほか取りまとめ中 
+# https://www.docker.com/blog/docker-hub-experimental-cli-tool/ 
+# https://www.docker.com/blog/connecting-with-the-docker-community-recap-of-our-first-community-all-hands/ 
+# https://www.docker.com/blog/secure-from-the-start-shift-vulnerability-scanning-left-in-docker-desktop/  
+# https://www.docker.com/blog/the-docker-developer-guide-to-aws-reinvent/  
+# https://www.docker.com/blog/docker-compose-for-amazon-ecs-now-available/  
 
 
 
