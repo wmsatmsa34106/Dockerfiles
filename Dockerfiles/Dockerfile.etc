@@ -1,7 +1,19 @@
 
 
 # Docker Blog
-# 
+# https://www.docker.com/blog/
+
+# Docker Newsroom
+# https://www.docker.com/company/newsroom
+
+
+# 開発者のためのさらなるイノベーションで2020年を締めくくる（Google翻訳
+# Closing Out 2020 with More Innovation for Developers
+# https://www.docker.com/blog/closing-out-2020-with-more-innovation-for-developers/
+  # topic : どれもだが Docker3 なんだろうか。OSではなくベアメタルなバイザーが今後のコンピューティング（多分、エコシステムな名称へ変化する）において"トレンドになる持続可能な"開発を担う方向になるのだろう
+  #         MSが遂にARM系を非公式ながらサポートしM1 Mac で実働できるレベルとなっているのは結構印象深い（Intelはメインストリームから脱落しそう）
+  #         from Google : SDGs
+
 
 # DockerWSL2がGPUサポート / WSL 2 GPU Support is Here
 # https://www.docker.com/blog/wsl-2-gpu-support-is-here/ 
