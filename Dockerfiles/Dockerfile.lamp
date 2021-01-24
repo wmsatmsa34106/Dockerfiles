@@ -89,6 +89,14 @@
 # dockerhub,serch lamp
 # https://hub.docker.com/r/lampson0505/ubuntu-phy/tags
 
+
+# google : docker compose lamp
+# https://codeaid.jp/blog/docker-lamp/
+# 
+# 
+# https://codeaid.jp/blog/vbox-lamp/
+
+
 # docker pull lampson0505/ubuntu-phy:v7
 
 # apache php
