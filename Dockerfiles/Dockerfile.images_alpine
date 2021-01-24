@@ -2,6 +2,9 @@
 # Dockerfile.etc
 
 
+# https://hub.docker.com/search?q=alpine-curl&type=image&sort=updated_at&order=desc
+# https://hub.docker.com/r/alpine/git
+
 docker pull jaedle/alpine-curl-jq-arm32v7
 
 docker run --rm -ti jaedle/alpine-curl-jq-arm32v7 sh
