@@ -6,6 +6,12 @@ https://hub.docker.com/_/amazonlinux
 https://qiita.com/yasumon/items/dcf76005b97a02b2de14  
 
 
+docker pull amazonlinux
+# test
+docker run --rm -ti amazonlinux bash
+yum groupinstall -y 'Development Tools' && yum install -y curl file git curl-devel
+
+
 docker push awsbrewimg
 
  
