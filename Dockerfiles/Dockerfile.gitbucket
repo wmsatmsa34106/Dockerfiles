@@ -69,3 +69,6 @@
 # https://gitbucket.github.io/
 
 
+# Win/ AD内などで、ローカルの管理権限と管理権限ユーザが”分離”されている場合
+# → %Public% を想定（Windows10）
+
