@@ -1,0 +1,31 @@
+
+# https://github.com/ponylang
+# https://github.com/ponylang/ponyc
+# https://hub.docker.com/r/ponylang/ponyc
+
+# https://gist.github.com/simonw/52f2128e3bafe1bc8dcde7622fe6f359
+
+# https://www.youtube.com/watch?v=LgFSCSJE0P4&t=240
+
+# docker pull ponylang/ponyc:latest
+
+# # $ docker images ponylang/ponyc:latest
+# # REPOSITORY       TAG       IMAGE ID       CREATED          SIZE
+# # ponylang/ponyc   latest    53e33e1d734e   38 minutes ago   618MB
+
+
+# docker pull ponylang/ponyc:release-alpine
+
+# # $ docker images ponylang/ponyc:release-alpine
+# # REPOSITORY       TAG              IMAGE ID       CREATED       SIZE
+# # ponylang/ponyc   release-alpine   09d54f046ede   4 weeks ago   452MB
+
+
+# https://github.com/ponylang/ponyc/releases/tag/0.38.2
+
+# # $ docker run --rm -it ponylang/ponyc:release-alpine ponyc -v
+# # 0.38.2-eb556003 [release]
+# # Compiled with: LLVM 9.0.1 -- Clang-9.0.0-x86_64
+# # Defaults: pic=true
+
+
