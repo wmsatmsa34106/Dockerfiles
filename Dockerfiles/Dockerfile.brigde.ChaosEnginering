@@ -1,10 +1,17 @@
+- GitHub CurrentUser Repository.public
+    - https://github.com/wmsatmsa34106/test/tree/main/Rep_ChaosEnginering
+    - https://github.com/wmsatmsa34106/test/tree/main/ChoasMonkey
 - 5分で学ぶ: カオスエンジニアリングの説明書		
     - https://blog.newrelic.co.jp/engineering/chaos-engineering-explained/
     - memo : ChaosTest ... TestingFramework
 
-    - → Netflex が発祥らしい	
-        - google : chaos engineering	
+    - → Netflex が発祥らしい
+        - google : chaos engineering
 
         - 他
             - カオスエンジニアリングと聞いてカオスになった人必見 - Qiita
                 - https://qiita.com/naokiiiii/items/de20997a70922c01f754
+        - Netflex の chaos engineering 実装
+            - https://github.com/Netflix/SimianArmy
+    - LinkedIn の chaos engineering を包括する "継続可能なシステム検証"
+        - （クマムシ）
