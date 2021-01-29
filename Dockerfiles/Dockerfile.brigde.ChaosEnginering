@@ -14,4 +14,8 @@
         - Netflex の chaos engineering 実装
             - https://github.com/Netflix/SimianArmy
     - LinkedIn の chaos engineering を包括する "継続可能なシステム検証"
-        - （クマムシ）
+        - LinkedInのカオスエンジニアリング - "LinkedOut"障害注入テストフレームワーク
+        - https://www.infoq.com/jp/news/2018/08/linkedout-failure-injection/
+        - https://engineering.linkedin.com/blog/2018/05/linkedout--a-request-level-failure-injection-framework
+           - Waterbear, tardigrade ... クマムシ（真空の宇宙空間などでも生存可能な、極めて耐性の高い生物）の意味
+           - google : linkedin カオスエンジニアリング クマムシ
