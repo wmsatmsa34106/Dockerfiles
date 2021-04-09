@@ -5,7 +5,8 @@
 #
 
 # FROM alpine:3.12
-FROM alpine:3.12.1
+# DockerHub.alpine 3.13.4 ... 2021年4月8日 
+FROM alpine:3.13.4
 
 # https://git.savannah.gnu.org/cgit/bash.git/commit/?h=devel
 # https://git.savannah.gnu.org/cgit/bash.git/?h=devel
@@ -13,9 +14,16 @@ FROM alpine:3.12.1
 # ENV _BASH_COMMIT 37b22abee700eb1b0c5b6926ab32630a429c1183
 # https://git.savannah.gnu.org/cgit/bash.git/tag/?h=bash-5.1
 # https://git.savannah.gnu.org/cgit/bash.git/commit/?h=bash-5.1&id=8868edaf2250e09c4e9a1c75ffe3274f28f38581
-ENV _BASH_COMMIT 8868edaf2250e09c4e9a1c75ffe3274f28f38581
+# 2021/04/upd
+# https://git.savannah.gnu.org/cgit/bash.git/commit/?h=devel&id=0e51345317f007a7733c25e64d304e416f0945bf
+ENV _BASH_COMMIT 0e51345317f007a7733c25e64d304e416f0945bf
 ENV _BASH_VERSION bash5.1rel,
 # prefixed with "_" since "$BASH..." have meaning in Bash parlance
+
+
+# master build
+# deelop 
+# head
 
 RUN set -eux; \
 	\
@@ -118,7 +126,7 @@ CMD ["bash"]
 # docker login
 # docker push tmsa34106/bash:5.1.0rc3
 # docker push tmsa34106/bash:5lasted
-
+# docker push tmsa34106/bash:5.1.rel
 
 # 依存関係の消し方、なんかうまくいかない？
 # https://qiita.com/matsuzan/items/d7de91564b1fadec27ca
