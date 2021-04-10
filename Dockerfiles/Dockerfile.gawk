@@ -252,7 +252,7 @@ ENTRYPOINT ["/usr/local/bin/gawk5"]
 CMD ["--help"]
 
 # # docker rmi tmsa34106/gawk:5.1.stable
-# docker build -f %APPDATA%\Docker\githubDockerfiles\Dockerfiles\Dockerfiles\Dockerfile.gawk.DockerBuildScript -t tmsa34106/gawk:5.1.stable .
+# docker build -f %APPDATA%\Docker\githubDockerfiles\Dockerfiles\Dockerfiles\Dockerfile.gawk.BuildScript -t tmsa34106/gawk:5.1.stable .
 # docker images tmsa34106/gawk:5.1.stable
 # docker run --rm -it tmsa34106/gawk:5.1.stable --version
 # docker push tmsa34106/gawk:5.1.stable
