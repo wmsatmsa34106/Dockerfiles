@@ -2,6 +2,64 @@
 # https://hub.docker.com/_/perl?tab=tags&page=1&ordering=last_updated
 
 
+# DockerHub.Offical.Perl.Dockerfile
+# https://github.com/Perl/docker-perl
+
+
+cat Dockerfile.Perl.buildscript
+
+# # docker rmi tmsa34106/perl:5.32.1.test
+# docker build -f %APPDATA%\Docker\githubDockerfiles\Dockerfiles\Dockerfiles\Dockerfile.Perl.buildscript -t tmsa34106/perl:5.32.1.test .
+# docker images tmsa34106/perl:5.32.1.test
+# docker run --rm -it tmsa34106/perl:5.32.1.test perl -v
+# docker push tmsa34106/perl:5.32.1.test
+
+
+# -- -------------------------------------------------------- build status _start_
+
+# $ docker build -f %APPDATA%\Docker\githubDockerfiles\Dockerfiles\Dockerfiles\Dockerfile.Perl.buildscript -t tmsa34106/perl:5.32.1.test .
+# [+] Building 1404.4s (9/9) FINISHED
+#  => [internal] load build definition from Dockerfile.Perl.buildscript                                                                   0.1s  
+#  => => transferring dockerfile: 2.27kB                                                                                                  0.0s  
+#  => [internal] load .dockerignore                                                                                                       0.1s  
+#  => => transferring context: 2B                                                                                                         0.0s  
+#  => [internal] load metadata for docker.io/library/debian:buster-slim                                                                   1.3s  
+#  => [internal] load build context                                                                                                       0.0s  
+#  => => transferring context: 2B                                                                                                         0.0s  
+#  => [1/5] FROM docker.io/library/debian:buster-slim@sha256:b586cf8c850cada85a47599f08eb34ede4a7c473551fd7c68cbf20ce5f8dbbf1             6.6s  
+#  => => resolve docker.io/library/debian:buster-slim@sha256:b586cf8c850cada85a47599f08eb34ede4a7c473551fd7c68cbf20ce5f8dbbf1             0.0s  
+#  => => sha256:b586cf8c850cada85a47599f08eb34ede4a7c473551fd7c68cbf20ce5f8dbbf1 1.85kB / 1.85kB                                          0.0s  
+#  => => sha256:f4793ff7e177674c0b8541165f67289907aaf4391f60d71ba2a3db8a70fa76dc 529B / 529B                                              0.0s  
+#  => => sha256:48e774d3c4f5ad4f5dc12755c44363a2037d074302618f704bd07774df9b1e10 1.46kB / 1.46kB                                          0.0s  
+#  => => sha256:f7ec5a41d630a33a2d1db59b95d89d93de7ae5a619a3a8571b78457e48266eba 27.14MB / 27.14MB                                        3.0s  
+#  => => extracting sha256:f7ec5a41d630a33a2d1db59b95d89d93de7ae5a619a3a8571b78457e48266eba                                               2.9s  
+#  => [2/5] COPY *.patch /usr/src/perl/                                                                                                   0.1s  
+#  => [3/5] WORKDIR /usr/src/perl                                                                                                         0.1s  
+#  => [4/5] RUN apt-get update     && apt-get install -y --no-install-recommends        bzip2        ca-certificates        curl       1395.3s  
+#  => exporting to image                                                                                                                  0.7s  
+#  => => exporting layers                                                                                                                 0.7s  
+#  => => writing image sha256:dbfd6e92dc35f80e2f4fc9a2afdf26042d5d1422d1ed8bc88a4aceee3e5aa840                                            0.0s  
+#  => => naming to docker.io/tmsa34106/perl:5.32.1.test                                                                                   0.0s
+
+# --
+
+# $ docker images tmsa34106/perl:5.32.1.test
+# REPOSITORY       TAG           IMAGE ID       CREATED         SIZE
+# tmsa34106/perl   5.32.1.test   dbfd6e92dc35   4 minutes ago   126MB
+
+# --
+
+# $ docker images debian:buster-slim
+# REPOSITORY   TAG           IMAGE ID       CREATED        SIZE
+# debian       buster-slim   48e774d3c4f5   11 hours ago   69.3MB
+
+# -- -------------------------------------------------------- build status _.end._
+
+
+# Dockerfile.Perl_build は多分放棄
+# Dockerfile.Perl.DockerCompose >>> Dockerfile.Perl.k8s or Dockerfile.Perl.toOrchestration
+
+
 # docker pull perl:5.32.0-slim-threaded-stretch
 docker pull perl:5.32.0-slim-stretch
 
