@@ -118,6 +118,11 @@ docker run -v //c/Users/%UserName%/Downloads/WORK01:/home/win --name common_test
 # https://ascii.jp/elem/000/004/032/4032590/
 
 
+# gawk 5.1 のBuildの参考
+# https://github.com/atarumix/docker-alpine-gawk5
+# https://github.com/atarumix/docker-alpine-gawk5/blob/master/Dockerfile
+
+
 
 docker run -v //c/Users/%UserName%/Downloads/WORK01:/home/win -v /:/home/busybox --name common_test_volume --rm -ti busybox:latest
 # なにやら、ボリュームマウントで警告が出る・以前に、何ともコワい”マウント”
@@ -209,3 +214,77 @@ docker run -v //c/Users/%UserName%/Downloads/WORK01:/home/win -v /:/home/busybox
 
 # 興味深い"man"page
 # http://www.qnx.com/developers/docs/6.5.0/index.jsp?topic=%2Fcom.qnx.doc.neutrino_utilities%2Fg%2Fgawk.html 
+
+
+
+
+# これ以降を Dockerfile.gawk.DockerBuildScriptへ
+
+# -- -------------------------------- gawk head rev. build script
+# https://github.com/atarumix/docker-alpine-gawk5/blob/master/Dockerfile
+
+# https://savannah.gnu.org/git/?group=gawk
+# https://git.savannah.gnu.org/cgit/gawk.git
+# https://git.savannah.gnu.org/cgit/gawk.git/
+# gawk-5.1-stable
+# 2021/04/upd
+# https://git.savannah.gnu.org/cgit/gawk.git/log/?h=gawk-5.1-stable
+# https://git.savannah.gnu.org/cgit/gawk.git/commit/?h=gawk-5.1-stable&id=f271311ac33d44e68da147a273847c3ce8552bb8
+
+
+
+FROM alpine:latest
+MAINTAINER tmsa34106
+
+WORKDIR /tmp
+RUN apk add --no-cache gcc make musl-dev && wget -O gawk-5.1.0.tar.xz http://ftp.gnu.org/gnu/gawk/gawk-5.1.0.tar.xz && tar xJvf gawk-5.1.0.tar.xz && rm gawk-5.1.0.tar.xz
+
+WORKDIR /tmp/gawk-5.1.0
+RUN if [ -f '/proc/cpuinfo' ]; then CPUNUM=`grep -c ^processor /proc/cpuinfo`;CPUNUM=`expr 1 + $CPUNUM` ;else CPUNUM=1; fi ;  ./configure && make -j$CPUNUM && strip gawk
+
+FROM alpine:latest
+MAINTAINER tmsa34106
+RUN mkdir /src && mkdir /usr/local/lib/gawk
+COPY --from=0 /tmp/gawk-5.1.0/gawk /usr/local/bin/gawk5
+COPY --from=0 /tmp/gawk-5.1.0/extension/.libs/*.so /usr/local/lib/gawk/
+WORKDIR /src
+ENTRYPOINT ["/usr/local/bin/gawk5"]
+CMD ["--help"]
+
+# # docker rmi tmsa34106/gawk:5.1.stable
+# docker build -f %APPDATA%\Docker\githubDockerfiles\Dockerfiles\Dockerfiles\Dockerfile.gawk.DockerBuildScript -t tmsa34106/gawk:5.1.stable .
+# docker images tmsa34106/gawk:5.1.stable
+# docker run --rm -it tmsa34106/gawk:5.1.stable --version
+# docker push tmsa34106/gawk:5.1.stable
+
+
+
+
+# git.head は少し工夫がいりそう
+
+# ENV _GAWK_COMMIT 0e51345317f007a7733c25e64d304e416f0945bf
+# ENV _GAWK_VERSION gawk5.1stable,
+# 
+# FROM alpine:3.13.4
+# MAINTAINER tmsa34106
+# WORKDIR /tmp
+# # atarumix.org
+# # RUN apk add --no-cache gcc make musl-dev && wget http://ftp.gnu.org/gnu/gawk/gawk-5.1.0.tar.xz && tar xJvf gawk-5.1.0.tar.xz && rm gawk-5.1.0.tar.xz
+# RUN apk add --no-cache gcc make musl-dev && wget -O gawk-5.1.0.tar.gz "https://git.savannah.gnu.org/cgit/gawk.git/snapshot/gawk-f271311ac33d44e68da147a273847c3ce8552bb8.tar.gz" && tar -zxvf gawk-5.1.0.tar.gz && rm gawk-5.1.0.tar.gz
+# WORKDIR /tmp/gawk-5.1.0
+# RUN if [ -f '/proc/cpuinfo' ]; then CPUNUM=`grep -c ^processor /proc/cpuinfo`;CPUNUM=`expr 1 + $CPUNUM` ;else CPUNUM=1; fi ;  ./configure && make -j$CPUNUM && strip gawk
+# 
+# FROM alpine:3.13.4
+# MAINTAINER tmsa34106
+# RUN mkdir /src && mkdir /usr/local/lib/gawk
+# COPY --from=0 /tmp/gawk-5.1.0/gawk /usr/local/bin/gawk5
+# COPY --from=0 /tmp/gawk-5.1.0/extension/.libs/*.so /usr/local/lib/gawk/
+# WORKDIR /src
+# ENTRYPOINT ["/usr/local/bin/gawk5"]
+# CMD ["--help"]
+# 
+# 
+# # docker rmi tmsa34106/gawk:5.1.stable
+# # docker build -f %APPDATA%\Docker\githubDockerfiles\Dockerfiles\Dockerfiles\Dockerfile.gawk.DockerBuildScript -t tmsa34106/gawk:5.1.stable .
+# # docker push tmsa34106/gawk:5.1.stable
+# 
