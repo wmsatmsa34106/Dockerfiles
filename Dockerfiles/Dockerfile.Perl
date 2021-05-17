@@ -12,7 +12,19 @@ cat Dockerfile.Perl.buildscript
 # docker build -f %APPDATA%\Docker\githubDockerfiles\Dockerfiles\Dockerfiles\Dockerfile.Perl.buildscript -t tmsa34106/perl:5.32.1.test .
 # docker images tmsa34106/perl:5.32.1.test
 # docker run --rm -it tmsa34106/perl:5.32.1.test perl -v
+# docker run --rm -it tmsa34106/perl:5.32.1.test perl -e "print 'AAA'."""\n""";" & REM DOS
+# docker run --rm -it tmsa34106/perl:5.32.1.test perl -e 'print "AAA\n";'
 # docker push tmsa34106/perl:5.32.1.test
+
+
+
+# # docker rmi tmsa34106/perl:5.33.8.test
+# docker build -f %APPDATA%\Docker\githubDockerfiles\Dockerfiles\Dockerfiles\Dockerfile.Perl.buildscript -t tmsa34106/perl:5.33.8.test .
+# docker images tmsa34106/perl:5.33.8.test
+# docker run --rm -it tmsa34106/perl:5.33.8.test perl -v
+# docker run --rm -it tmsa34106/perl:5.33.8.test perl -e "print 'AAA'."""\n""";" & REM DOS
+# docker run --rm -it tmsa34106/perl:5.33.8.test perl -e 'print "AAA\n";'
+# docker push tmsa34106/perl:5.33.8.test
 
 
 # -- -------------------------------------------------------- build status _start_
