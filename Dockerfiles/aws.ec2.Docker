@@ -1,0 +1,25 @@
+
+
+
+- docker-compose
+    - どうやら、この docker pull/ alias 定義 で使えるようになりそう？
+    - https://hub.docker.com/r/docker/compose
+        - alias
+            - `` alias docker-compose='sudo docker run --rm -ti docker/compose $*' ``
+        - unalias
+            - `` unalias docker-compose ``    
+- 
+
+- chrome :: Aws EC2 に docker-compose をインストールする /docker をインストールするの続き
+    - google : docker-compose install amazon linux 2
+    - memo : title : Amazon Linux 2でdocker、docker-composeを使う（2019年5月） - Qiita
+        ... ここにも、Aws.EC2 スッピンに入れる方法/ wheel設定もあり
+        - url : https://qiita.com/kawanet/items/30c1acd4bc90ee0e535d
+    - memo : title : EC2(Amazon Linux 2)にdockerとdocker-composeをインストールしてみる - Qiita
+        ... こちらには、↑＋サービス登録もあり
+        - url : https://qiita.com/simis/items/8b271e4d091b5380159c
+    - memo : title : 
+        - url : 
+    - memo : title : 
+        - url : 
+
