@@ -1,0 +1,13 @@
+
+   - add.memo. :: ～とはなにか。Remote - Containers/ .devcontainer
+   - https://weseek.co.jp/tech/2331/?title="VSCode × Docker で快適な開発環境をあなたにも"
+- google.com/search?q=vscode+docker
+   - add.memo. :: まだまだなくならない、Excel文書（）/ マジコンテナ化して効率化とポータビリティとその他もろもろの不満を解決したいところ
+- google.com/search?q=openpyxl+vscode
+   - add.memo. :: Docker＆DockerComposeを超えてる感ありだが"post script"に書けば解決するだろうっている雑な整理
+   - https://zenn.dev/kuronekopunk/articles/3a355b395d118b?title="WordPress開発環境をwp-envで簡単に作る"
+- google.com/search?q=wp-env
+   - https://www.microstone.info/gitbucket-jenkins-docker/?title="GitBucket/JenkinsをDocker上にCI/CD環境構築 | MicroStone"
+- google.com/search?q=docker+gitbucket+plugin
+   - https://qiita.com/hamburg-love/items/f96ecd7fac7c13630279?title="Apache + php-fpm を別々の Docker コンテナで動かしたい（Unixドメインソケット コンテナ間通信） - Qiita"
+- google : docker php apache 別コンテナ
